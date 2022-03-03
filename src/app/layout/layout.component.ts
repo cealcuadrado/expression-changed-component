@@ -10,13 +10,17 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class LayoutComponent implements OnInit {
 
+  posts: any = [];
+
   constructor(
     private http: HttpClient,
     private modal: NgbModal
   ) { }
 
   ngOnInit(): void {
-
+    this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe(posts => {
+      this.posts = posts;
+    });
   }
 
   openModal(): void {
