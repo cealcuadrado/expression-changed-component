@@ -19,9 +19,11 @@ export class LoaderInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    this.currentModal = this.modal.open(ModalLoaderComponent, {
-      centered: true,
-      backdrop: false,
+    Promise.resolve(null).then(() => {
+      this.currentModal = this.modal.open(ModalLoaderComponent, {
+        centered: true,
+        backdrop: false,
+      });
     });
 
     return next.handle(request).pipe(
