@@ -1,5 +1,7 @@
+import { ModalLoaderComponent } from './../modal-loader/modal-loader.component';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-layout',
@@ -9,13 +11,19 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private modal: NgbModal
   ) { }
 
   ngOnInit(): void {
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe(users => {
-      console.log(users);
-    });
+
+  }
+
+  openModal(): void {
+    this.modal.open(ModalLoaderComponent, {
+      centered: true,
+      backdrop: false
+    })
   }
 
 }

@@ -6,12 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ModalLoaderComponent } from './modal-loader/modal-loader.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    ModalLoaderComponent
   ],
   imports: [
     BrowserModule,
